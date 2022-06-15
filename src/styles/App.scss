@@ -1,5 +1,7 @@
+$align: center;
+
 .App {
-  text-align: center;
+  text-align: $align;
 }
 
 .App-logo {

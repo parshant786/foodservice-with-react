@@ -1,0 +1,11 @@
+$container-display: flex;
+//
+@mixin signFrom {
+    width: 40%;
+    margin: auto;
+    text-align: center;
+    border: 1px solid black;
+    height: 60vh;
+    margin-top: 18vh; 
+    padding: 4%; 
+}
