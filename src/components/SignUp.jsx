@@ -24,7 +24,7 @@ export const SignUp = () => {
     } else {
       const registered = { ...state };
     
-      axios("http://localhost:4000/api/signUp", registered).then((res) => {
+      axios.post("http://localhost:4000/api/signUp", registered).then((res) => {
         console.log(res.data);
       });
       setState({
