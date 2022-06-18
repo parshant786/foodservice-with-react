@@ -1,4 +1,5 @@
-import React from 'react'
+import React from "react";
+import { Link } from "react-router-dom";
 
 export const SignIn = () => {
   return (
@@ -13,8 +14,11 @@ export const SignIn = () => {
           <label htmlFor="password">password</label>
           <input type="password" id="password" />
         </p>
-       <button type="button"> sign in </button>
+        <Link to={"/profile"}>
+          {" "}
+          <button type="button"> sign in </button>{" "}
+        </Link>
       </form>
     </div>
-  )
-}
+  );
+};
