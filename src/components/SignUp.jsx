@@ -25,7 +25,8 @@ export const SignUp = () => {
       const registered = { ...state };
     
       axios.post("http://localhost:4000/api/signUp", registered).then((res) => {
-        console.log(res.data);
+        alert(res.data.message);
+        
       });
       setState({
         fullName: "",
@@ -35,6 +36,7 @@ export const SignUp = () => {
       setStatePasswordConfirm({
         confirm: "",
       });
+      window.location ="/signIn"
     }
   };
   const handleFullName = (e) => {
