@@ -10,5 +10,10 @@ app.use(express.json());
 app.use(cors());
 app.use("/api", routeUrl);
 app.listen(4000, () => {
+  
   console.log("server is running on 4000");
 });
+
+db.collectionName.insert(
+  {item:"itemName", qty: 1}
+)
