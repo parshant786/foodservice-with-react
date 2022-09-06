@@ -13,9 +13,9 @@ export const SignIn = ({ setUserFuntion, logInUser }) => {
   const passwordChange = (e) => {
     setDetail({ ...detail, password: e.target.value });
   };
-  const handleSubmit =async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const signIndetail =await { ...detail };
+    const signIndetail ={ ...detail };
     axios.post("http://localhost:4000/api/signIn", signIndetail).then(async (res) => {
       await setUserFuntion(res.data.user);
       console.log(logInUser);
@@ -25,7 +25,7 @@ export const SignIn = ({ setUserFuntion, logInUser }) => {
       if (res.data.user) {
 
         navigate("/profile")
-      // window.location = "/profile";
+    
       }
     });
   };

@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
 export const SignUp = () => {
+   const navigate= useNavigate();
   const [state, setState] = useState({
     fullName: "",
     email: "",
@@ -25,7 +28,8 @@ export const SignUp = () => {
       const registered = { ...state };
     
       axios.post("http://localhost:4000/api/signUp", registered).then((res) => {
-        alert(res.data.message);
+        alert(res.data.email);
+        console.log(res.data);
         
       });
       setState({
@@ -36,7 +40,7 @@ export const SignUp = () => {
       setStatePasswordConfirm({
         confirm: "",
       });
-      window.location ="/signIn"
+      navigate("/signIn")
     }
   };
   const handleFullName = (e) => {

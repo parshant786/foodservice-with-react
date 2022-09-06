@@ -21,21 +21,38 @@ router.post("/signUp", (req, res) => {
 router.get("/signUp", (req, res) => {
   signUpTemplateCopy.find({}, (err, users) => {
     if (err) console.log("err");
-    res.json(users);
+    else {
+      res.json(users);
+    }
   });
 });
 router.post("/signIn", (req, res) => {
   const { email, password } = req.body;
-  signUpTemplateCopy.findOne({ email:email },(err,user)=>{
-    if(user){
-      if(user.password !== password){
-        res.send({message:"invalid password"})
-      }else{
-        res.send({message:"logIn successful",user:user})
+  signUpTemplateCopy.findOne({ email: email }, (err, user) => {
+    if (user) {
+      if (user.password !== password) {
+        res.send({ message: "invalid password" });
+      } else {
+        res.send({ message: "logIn successful", user: user });
       }
+    } else {
+      res.send({ message: "not registered user" });
+    }
+  });
+});
+router.delete("/userList/:id", (req, res) => {
+  console.log(req.params);
+  signUpTemplateCopy.remove({ _id: req.params.id }, function(err, transaction) {
+    if (err)
+        res.send(err);
+    res.json({ message: 'Transaction deleted!' })
+});
 
-    }else{
-      res.send({message:"not registered user"})
+});
+router.get("/userList/:id", (req, res) => {
+  signUpTemplateCopy.findOne({ _id: req.params.id }, (err, user) => {
+    if (user) {
+      res.send({ message: user });
     }
   });
 });

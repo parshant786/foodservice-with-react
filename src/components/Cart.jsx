@@ -20,7 +20,7 @@ export const Cart = ({ cartArr, setCart }) => {
       {cartArr.map((item) => {
         return <CartItem item={item} key={item.id} setCart={setCart} cartArr={cartArr} />;
       })}
-      <div>amount{total}</div>
+      <div>amount = {total}</div>
     </>
   );
 };
